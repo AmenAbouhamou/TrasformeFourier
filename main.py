@@ -2,7 +2,7 @@ from PIL import Image
 from numpy.random import default_rng as rng
 from FourierDiscreta1D import *
 from FourierDiscreta2D import *
-from FourierRapide import *
+from FourierRapide1D import *
 import numpy as np
 import cmath as math
 from operators import *
@@ -77,7 +77,7 @@ match mode:
 
         print("Transformée directe : ")
         comparaison(img2DTDB, temoin) 
-
+        print(img2DTI[0][0], temoin_inv[0][0])
         print("Transformée inverse :")
         comparaison(img2DTI, temoin_inv)
         

@@ -1,5 +1,6 @@
 import numpy as np
 import cmath as math
+from FourierDiscreta1D import *
 
 def FourierRapide1D(img):
     N=len(img);
