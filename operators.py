@@ -35,7 +35,7 @@ def or_to_square(t):
             t2[i][j]=t[i][j]
     return t2
 
-def pow_to_or(t, m_org, n_org):
+def pow_to_or(t, m_org, n_org):#get the origin imge from the 2^n image
     m, n = t.shape
     t2 = np.zeros((m_org, n_org))
     for i in range(m_org):
@@ -81,3 +81,16 @@ def comparaison(A1, A2):
     else:
         print("Ce n'est pas le bon résultat !")
     
+def compaire(A1,A2):
+    N1,M1=A1.shape
+    found=True
+    for i in range(N1):
+        for j in range(M1):
+            k=pow((A1[i][j]-A2[i][j]),2)
+            if(k>1 or k<0):
+                found=False
+                print(i," - ",j,"  ",A1[i][j],"   ",A2[i][j])
+    if (found):
+        print("C'est le bon résultat !")
+    else:
+        print("Ce n'est pas le bon résultat !")
