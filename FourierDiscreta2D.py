@@ -23,5 +23,5 @@ def FourierBrutInverse2D(img):
             for x in range(M):
                 for y in range(N):
                     somme+=img[x][y]*math.exp(2j*math.pi*((m * x / M) + (n * y / N)));
-            res[m][n]=somme/(M*N);
+            res[m][n]=somme*N/(M);
     return res;                
