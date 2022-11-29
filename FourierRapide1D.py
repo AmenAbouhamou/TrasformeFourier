@@ -3,21 +3,21 @@ import cmath as math
 from FourierDiscreta1D import *
 
 def FourierRapide1D(img):
-    N=len(img);
-    res=np.ones(N,dtype=complex);
-    for k in range(N):
-        somme=complex(0,0);
-        for n in range(N):
-            somme+=img[n]*math.exp(-2j*math.pi*k*n/N);
-        res[k]=somme;
-    return res;    
+    N = len(img)
+    if(N>2):
+        pair = FourierRapide1D(img[::2])
+        impair = FourierRapide1D(img[1::2])
+        factor = np.exp(-2j * np.pi * np.arange(N//2) / N)
+        return np.concatenate([pair + factor * impair, pair - factor * impair])
+    else:
+        return FourierBrut1D(img)
 
 def FourierRapideInverse1D(img):
-    N=len(img);
-    res=np.ones(N,dtype=complex);
-    for k in range(N):
-        somme=complex(0,0);
-        for n in range(N):
-            somme+=img[n]*math.exp(2j*math.pi*k*n/N);
-        res[k]=somme/N;
-    return res;             
+    N = len(img)
+    if(N>2):
+        pair = FourierRapideInverse1D(img[::2])
+        impair = FourierRapideInverse1D(img[1::2])
+        factor = np.exp(2j * np.pi * np.arange(N//2) / N)
+        return np.concatenate([pair + factor * impair, pair - factor * impair])
+    else:
+        return FourierBrutInverse1D(img)
