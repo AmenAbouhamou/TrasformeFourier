@@ -54,10 +54,10 @@ match mode:
         temoin1D_inv = traitement(temoin1D_inv)
         
         print("Directe :")
-        comparaison(img1DTDB, temoin1D)
+        compaire(img1DTDB, temoin1D)
 
         print("Inverse :")
-        comparaison(img1DTI, temoin1D_inv)
+        compaire(img1DTI, temoin1D_inv)
         print2Dresult(img1DTDB)
         print2Dresult(img1DTI)
     case 2:
@@ -110,9 +110,9 @@ match mode:
         img1DTDI = traitement(img1DTDI)
 
         print("Directe :")
-        comparaison(img1DTDB, temoin1D)
+        compaire(img1DTDB, temoin1D)
         print("Inverse :")
-        comparaison(img1DTDI, temoin1D_inv)
+        compaire(img1DTDI, temoin1D_inv)
     case 4:
          # 2D RAPIDE
 
@@ -137,9 +137,9 @@ match mode:
         temoin_inv = pow_to_or(temoin_inv, M_org, N_org)
 
         print("Transformée directe rapide : ")
-        comparaison(img2DTDB, temoin)
+        compaire(img2DTDB, temoin)
 
         print("Transformée inverse rapide : ")
-        comparaison(img2DTI, temoin_inv)   
+        compaire(img2DTI, temoin_inv)   
         
         
