@@ -28,6 +28,7 @@ img2DTDB = np.zeros((M,N), dtype=complex)
 print("Dimension=> ",M," - ",N)
 p1D = np.random.rand(N)
 
+
 mode=4
 match mode:
     case 1:
@@ -115,9 +116,12 @@ match mode:
         compaire(img1DTDI, temoin1D_inv)
     case 4:
          # 2D RAPIDE
-
+        start_time = time.time()
         img2DTDB = FFT2D(p)
+        print("--- %s seconds Fourier Rapide 2D ---" % (time.time() - start_time))
+        start_time = time.time()
         img2DTI = IFFT2D(img2DTDB)
+        print("--- %s seconds Fourier Rapide 2D ---" % (time.time() - start_time))
         
         start_time = time.time()
         temoin = np.fft.fft2(p)
